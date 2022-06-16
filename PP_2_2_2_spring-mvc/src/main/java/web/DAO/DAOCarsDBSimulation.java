@@ -15,10 +15,11 @@ import static java.lang.Integer.min;
 @NoArgsConstructor
 
 public class DAOCarsDBSimulation implements DAO<Car>{
-
-    @Autowired
-    @Qualifier("cars")
     private CarDBSimulation cars;
+    @Autowired
+    public void setCars(CarDBSimulation cars) {
+        this.cars = cars;
+    }
 
     @Override
     public List<Car> getItemsByCount(int count) {

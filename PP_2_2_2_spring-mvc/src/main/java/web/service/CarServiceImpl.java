@@ -6,15 +6,17 @@ import org.springframework.stereotype.Component;
 import web.DAO.DAOCarsDBSimulation;
 import web.model.Car;
 import java.util.List;
-import java.util.Optional;
 
 import static java.lang.Integer.parseInt;
 
 @Component
 public class CarServiceImpl implements Service<Car> {
-    @Autowired
-    @Qualifier("daoCars")
+
     DAOCarsDBSimulation daoCarsDDSimulation;
+    @Autowired
+    public void setDaoCarsDDSimulation(DAOCarsDBSimulation daoCarsDDSimulation) {
+        this.daoCarsDDSimulation = daoCarsDDSimulation;
+    }
 
     @Override
     public List<Car> getItemsByCount(String count) {
