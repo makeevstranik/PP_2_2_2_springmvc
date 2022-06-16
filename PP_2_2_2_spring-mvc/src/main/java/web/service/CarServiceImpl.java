@@ -18,7 +18,6 @@ public class CarServiceImpl implements Service<Car> {
 
     @Override
     public List<Car> getItemsByCount(String count) {
-        //int validCount = parseInt(Optional.ofNullable(count).orElse("0"));
         return count == null ? daoCarsDDSimulation.getAllItems() : daoCarsDDSimulation.getItemsByCount(parseInt(count));
     }
 
