@@ -1,7 +1,6 @@
 package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import web.DAO.DAOCarsDBSimulation;
 import web.model.Car;
@@ -12,19 +11,19 @@ import static java.lang.Integer.parseInt;
 @Component
 public class CarServiceImpl implements Service<Car> {
 
-    DAOCarsDBSimulation daoCarsDDSimulation;
+    DAOCarsDBSimulation daoCarsDBSimulation;
     @Autowired
-    public void setDaoCarsDDSimulation(DAOCarsDBSimulation daoCarsDDSimulation) {
-        this.daoCarsDDSimulation = daoCarsDDSimulation;
+    public void setDaoCarsDBSimulation(DAOCarsDBSimulation daoCarsDBSimulation) {
+        this.daoCarsDBSimulation = daoCarsDBSimulation;
     }
 
     @Override
     public List<Car> getItemsByCount(String count) {
-        return count == null ? daoCarsDDSimulation.getAllItems() : daoCarsDDSimulation.getItemsByCount(parseInt(count));
+        return count == null ? daoCarsDBSimulation.getAllItems() : daoCarsDBSimulation.getItemsByCount(parseInt(count));
     }
 
     @Override
     public List<Car> getAllItems() {
-        return daoCarsDDSimulation.getAllItems();
+        return daoCarsDBSimulation.getAllItems();
     }
 }
